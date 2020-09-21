@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"net/http"
 
 	"github.com/brianosaurus/backend/pkg/websocket"
@@ -11,7 +10,7 @@ import (
 func serveWs(w http.ResponseWriter, r *http.Request) {
 	ws, err := websocket.Upgrade(w, r)
 	if err != nil {
-		fmt.Fprintf(w, "%+\/\n", err)
+		fmt.Fprintf(w, "%+\\/\n", err)
 	}
 
 	go websocket.Writer(ws)
